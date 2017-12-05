@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Chownus.AoC.Console._2017.Day5
+namespace Chownus.AoC.Console
 {
     public class Day5Solution : IAoCSolution
     {
