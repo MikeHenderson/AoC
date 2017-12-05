@@ -18,7 +18,7 @@ namespace Chownus.AoC.Console
             var stepCount = 0;
             var index = 0;
 
-            while (index < _input.Count)
+            while (index >= 0 && index < _input.Count)
             {
                 //Get instruction
                 var instruction = _input[index];
