@@ -12,10 +12,11 @@ namespace Chownus.AoC.Console
 
         public string RunPart1()
         {
-            var visited = new List<int[]> { (int[])_input.Clone() };
             var counter = 0;
             var dupeFound = false;
+
             var redist = (int[]) _input.Clone();
+            var visited = new List<int[]>{ redist }; //seed original
 
             while (!dupeFound)
             {
@@ -34,8 +35,27 @@ namespace Chownus.AoC.Console
 
         public string RunPart2()
         {
-            return "555";
+            var matchFound = false;
+
+            var redist = (int[]) _input.Clone();
+            var visited = new List<string>{ string.Join(string.Empty, redist) }; // seed original
+
+            while (!matchFound)
+            {
+                redist = Redistribute(redist);
+
+                visited.Add(string.Join(string.Empty, redist));
+
+                var steps = FindSpacesBetweenVisited(visited);
+
+                if (steps > 0)
+                    return steps.ToString();
+            }
+
+
+            return "";
         }
+
 
         public void Initialize(IEnumerable<string> input)
         {
@@ -76,20 +96,19 @@ namespace Chownus.AoC.Console
             return false;
         }
 
-        private int FindSpacesBetweenVisited(IList<int[]> states)
+        private int FindSpacesBetweenVisited(IList<string> states)
         {
-            var temp = states.Select(x => x).ToList();
+            var groups = states.Select((x, i) => new {Index = i, Data = x})
+                .GroupBy(g => g.Data)
+                .Where(g => g.Count() == 2)
+                .ToList();
 
-            foreach (var state in states)
+            // Should only be 2 here
+            if (groups.Any())
             {
-                var index = temp.IndexOf(state);
-                temp.Remove(state);
+                var g = groups.First().ToList();
 
-                var index2 = temp.IndexOf(state);
-
-                if (index2 + 1 > 0)
-                    return index2 + 1 - index;
-
+                return g[1].Index - g[0].Index;
             }
 
             return 0;
