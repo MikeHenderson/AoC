@@ -53,7 +53,7 @@ namespace Chownus.AoC.Console
             }
 
 
-            return "";
+            return "Answer not found";
         }
 
 
