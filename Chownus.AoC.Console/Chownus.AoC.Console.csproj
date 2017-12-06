@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="2017\Day6\Day6Solution.cs" />
     <Compile Include="2017\Day5\Day5Solution.cs" />
     <Compile Include="IAoCSolution.cs" />
     <Compile Include="Program.cs" />
@@ -52,6 +53,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="2017\Day6\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="2017\Day5\input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
