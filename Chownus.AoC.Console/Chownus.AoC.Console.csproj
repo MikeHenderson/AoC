@@ -8,9 +8,10 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>Chownus.AoC.Console</RootNamespace>
     <AssemblyName>Chownus.AoC.Console</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -42,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="2017\Day7\Day7Solution.cs" />
     <Compile Include="2017\Day6\Day6Solution.cs" />
     <Compile Include="2017\Day5\Day5Solution.cs" />
     <Compile Include="IAoCSolution.cs" />
@@ -53,6 +55,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="2017\Day7\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="2017\Day6\input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
