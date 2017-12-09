@@ -56,6 +56,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="2017\Day9\Day9Tests.cs" />
     <Compile Include="2017\Day8\Day8Tests.cs" />
     <Compile Include="2017\Day7\Day7Tests.cs" />
     <Compile Include="2017\Day6\Day6Tests.cs" />

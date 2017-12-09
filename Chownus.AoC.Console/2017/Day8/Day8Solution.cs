@@ -39,17 +39,9 @@ namespace Chownus.AoC.Console
         public string RunPart2()
         {
             var registers = new Dictionary<string, int>();
-            int maxValue = 0;
-
-            foreach (var instruction in _input)
-            {
-                var currentMax = ExecuteInstruction(instruction, registers);
-
-                if (currentMax > maxValue)
-                    maxValue = currentMax;
-            }
-
-            return maxValue.ToString();
+            return _input.Select(instruction => ExecuteInstruction(instruction, registers))
+                .Max()
+                .ToString();
         }
 
         private int ExecuteInstruction(string instruction, IDictionary<string, int> registers)
