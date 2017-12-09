@@ -17,7 +17,22 @@ namespace Chownus.AoC.Console
 
         public string RunPart2()
         {
-            return "";
+            //Remove characters we don't care about
+            var removedSkipped = ClearSkippedCharacters(_input.First());
+
+            //Find matches and count
+            var garbage = "<.*?>";
+            var matches = Regex.Matches(removedSkipped, garbage);
+
+            var count = 0;
+
+            foreach (var match in matches)
+            {
+                // Ignore trailing and leading < >
+                count += match.ToString().Length - 2;
+            }
+
+            return count.ToString();
         }
 
         private static int CalculateScore(string input)
@@ -37,15 +52,19 @@ namespace Chownus.AoC.Console
 
         private static string ClearGarbage(string input)
         {
-            var skipCharacter = "!.";
             var garbage = "<.*?>";
             var nonScoring = "[^{}]";
 
-            var removedSkip = Regex.Replace(input, skipCharacter, string.Empty);
-            var removedGarbage = Regex.Replace(removedSkip, garbage, string.Empty);
+            var removedGarbage = Regex.Replace(ClearSkippedCharacters(input), garbage, string.Empty);
             var onlyScoring = Regex.Replace(removedGarbage, nonScoring, string.Empty);
 
             return onlyScoring;
+        }
+
+        private static string ClearSkippedCharacters(string input)
+        {
+            var skipCharacter = "!.";
+            return Regex.Replace(input, skipCharacter, string.Empty);
         }
 
         public void Initialize(IEnumerable<string> input)

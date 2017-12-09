@@ -31,9 +31,22 @@ namespace Chownus.AoC.Tests
             Assert.Equal(expectedScore.ToString(), score);
         }
 
-        [Fact]
-        public void Part2()
+        [Theory]
+        [InlineData("<>", 0)]
+        [InlineData("<random characters>", 17)]
+        [InlineData("<<<<>", 3)]
+        [InlineData("<{!>}>", 2)]
+        [InlineData("<!!>", 0)]
+        [InlineData("<!!!>>", 0)]
+        [InlineData("<{o\"i!a,<{i<a>", 10)]
+        public void Part2(string sequence, int expectedCount)
         {
+            var input = new[] { sequence };
+            _testObject.Initialize(input);
+
+            var score = _testObject.RunPart2();
+
+            Assert.Equal(expectedCount.ToString(), score);
         }
     }
 }
