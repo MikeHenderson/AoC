@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Chownus.AoC.Console
 {
-    public class Day10Solution : IAoCSolution
+    public class Day11Solution : IAoCSolution
     {
         private IEnumerable<int> _input;
         private string _input2;

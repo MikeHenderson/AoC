@@ -9,7 +9,7 @@ namespace Chownus.AoC.Tests
 
         public Day10Tests()
         {
-            _testObject = new Day10Solution();
+            _testObject = new Day1Solution();
         }
 
         [Fact]

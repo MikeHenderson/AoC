@@ -56,12 +56,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="2017\Day10\Day10Tests.cs" />
-    <Compile Include="2017\Day9\Day9Tests.cs" />
-    <Compile Include="2017\Day8\Day8Tests.cs" />
-    <Compile Include="2017\Day7\Day7Tests.cs" />
-    <Compile Include="2017\Day6\Day6Tests.cs" />
-    <Compile Include="2017\Day5\Day5Tests.cs" />
+    <Compile Include="2017\11\Day11Tests.cs" />
+    <Compile Include="2017\10\Day10Tests.cs" />
+    <Compile Include="2017\9\Day9Tests.cs" />
+    <Compile Include="2017\8\Day8Tests.cs" />
+    <Compile Include="2017\7\Day7Tests.cs" />
+    <Compile Include="2017\6\Day6Tests.cs" />
+    <Compile Include="2017\5\Day5Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
