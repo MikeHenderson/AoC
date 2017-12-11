@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="2017\11\Day11Solution.cs" />
-    <Compile Include="2017\10\Day11Solution.cs" />
+    <Compile Include="2017\10\Day10Solution.cs" />
     <Compile Include="2017\9\Day9Solution.cs" />
     <Compile Include="2017\8\Day8Solution.cs" />
     <Compile Include="2017\7\Day7Solution.cs" />

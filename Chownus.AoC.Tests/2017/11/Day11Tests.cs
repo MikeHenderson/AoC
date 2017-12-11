@@ -12,9 +12,18 @@ namespace Chownus.AoC.Tests
             _testObject = new Day11Solution();
         }
 
-        [Fact]
-        public void Part1()
+        [Theory]
+        [InlineData("ne,ne,ne", 3)]
+        [InlineData("ne,ne,sw,sw", 0)]
+        [InlineData("ne,ne,s,s", 2)]
+        [InlineData("se,sw,se,sw,sw", 3)]
+        public void Part1(string input, int expected)
         {
+            _testObject.Initialize(new [] { input });
+
+            var solution = _testObject.RunPart1();
+
+            Assert.Equal(expected.ToString(), solution);
         }
 
         [Fact] 

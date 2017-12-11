@@ -7,7 +7,7 @@ namespace Chownus.AoC.Console
 {
     public static class Utilities
     {
-        private static readonly Func<int, string> FormatPath = day => $".\\2017\\Day{day}\\input.txt";
+        private static readonly Func<int, string> FormatPath = day => $".\\2017\\{day}\\input.txt";
 
         public static string ImportInput(int day)
         {
