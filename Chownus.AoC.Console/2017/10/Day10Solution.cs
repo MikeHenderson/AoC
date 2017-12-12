@@ -1,34 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Chownus.AoC.Console
 {
     public class Day10Solution : IAoCSolution
     {
-        private IEnumerable<int> _input;
-        private string _input2;
-
         public int Day => 10;
 
-        public string RunPart1()
+        public string RunPart1(IEnumerable<string> testData)
         {
+            var input = testData.First().Split(',').Select(int.Parse);
             var count = 0;
-            var knotHash = GenerateSparseHashFromInput(GenerateHashList().First, _input, ref count);
+            var knotHash = GenerateSparseHashFromInput(GenerateHashList().First, input, ref count);
             return (knotHash.List.First.Value * knotHash.List.First.Next.Value).ToString();
         }
 
-        public string RunPart2()
+        public string RunPart2(IEnumerable<string> testData)
         {
             // Get sparse hash array
             var list = GenerateHashList();
-            var input = GenerateAsciiInputList();
+            var inputList = GenerateAsciiInputList(testData.First());
             var head = list.First;
             var skipCount = 0;
 
             for (int i = 0; i < 64; i++)
-                head = GenerateSparseHashFromInput(head, input, ref skipCount);
+                head = GenerateSparseHashFromInput(head, inputList, ref skipCount);
 
             // Generate dense hash from sparse hash
             var denseHash = new List<int>();
@@ -37,12 +33,6 @@ namespace Chownus.AoC.Console
                 denseHash.Add(list.Skip(i * 16).Take(16).Aggregate(0, (x, y) => x ^ y));
 
             return string.Join(string.Empty, denseHash.Select(x => x.ToString("X2")));
-        }
-
-        public void Initialize(IEnumerable<string> input)
-        {
-            _input = input.First().Split(',').Select(int.Parse);
-            _input2 = input.First().Replace(" ", string.Empty);
         }
 
         private LinkedList<int> GenerateHashList()
@@ -57,10 +47,10 @@ namespace Chownus.AoC.Console
             return list;
         }
 
-        private IList<int> GenerateAsciiInputList()
+        private IList<int> GenerateAsciiInputList(string input)
         {
             // Get original ascii codes and add appendix
-            var asciiCodes = _input2.Select(x => (int) x).ToList();
+            var asciiCodes = input.Select(x => (int) x).ToList();
             asciiCodes.AddRange(new[] {17, 31, 73, 47, 23});
 
             return asciiCodes;

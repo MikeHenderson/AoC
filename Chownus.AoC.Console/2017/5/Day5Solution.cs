@@ -5,26 +5,21 @@ namespace Chownus.AoC.Console
 {
     public class Day5Solution : IAoCSolution
     {
-        private IList<int> _input;
         public int Day => 5;
 
-        public void Initialize(IEnumerable<string> input)
+        public string RunPart1(IEnumerable<string> testData)
         {
-            _input = input.Select(int.Parse).ToList();
-        }
-
-        public string RunPart1()
-        {
+            var input = testData.Select(int.Parse).ToList();
             var stepCount = 0;
             var index = 0;
 
-            while (index >= 0 && index < _input.Count)
+            while (index >= 0 && index < input.Count)
             {
                 //Get instruction
-                var instruction = _input[index];
+                var instruction = input[index];
 
                 //Increment instruction
-                _input[index]++;
+                input[index]++;
 
                 //Do hop
                 index += instruction;
@@ -36,24 +31,25 @@ namespace Chownus.AoC.Console
             return stepCount.ToString();
         }
 
-        public string RunPart2()
+        public string RunPart2(IEnumerable<string> testData)
         {
+            var input = testData.Select(int.Parse).ToList();
             var index = 0;
             var stepCount = 0;
 
-            while (index >= 0 && index < _input.Count)
+            while (index >= 0 && index < input.Count)
             {
                 //Get instruction
-                var instruction = _input[index];
+                var instruction = input[index];
 
                 //Do hop
                 index += instruction;
 
                 //Increment/Decrement instruction
                 if (instruction >= 3)
-                    _input[index - instruction]--;
+                    input[index - instruction]--;
                 else
-                    _input[index - instruction]++;
+                    input[index - instruction]++;
 
                 stepCount++;
             }

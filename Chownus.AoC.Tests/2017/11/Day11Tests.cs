@@ -19,9 +19,7 @@ namespace Chownus.AoC.Tests
         [InlineData("se,sw,se,sw,sw", 3)]
         public void Part1(string input, int expected)
         {
-            _testObject.Initialize(new [] { input });
-
-            var solution = _testObject.RunPart1();
+            var solution = _testObject.RunPart1(new[] { input });
 
             Assert.Equal(expected.ToString(), solution);
         }
@@ -33,9 +31,7 @@ namespace Chownus.AoC.Tests
         [InlineData("se,sw,se,sw,sw", 3)]
         public void Part2(string input, int expected)
         {
-            _testObject.Initialize(new[] { input });
-
-            var solution = _testObject.RunPart2();
+            var solution = _testObject.RunPart2(new[] { input });
 
             Assert.Equal(expected.ToString(), solution);
         }

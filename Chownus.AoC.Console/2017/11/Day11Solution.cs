@@ -6,8 +6,6 @@ namespace Chownus.AoC.Console
 {
     public class Day11Solution : IAoCSolution
     {
-        private IEnumerable<string> _input;
-
         public int Day => 11;
 
         private readonly IDictionary<string, Point> actions = new Dictionary<string, Point>
@@ -20,12 +18,14 @@ namespace Chownus.AoC.Console
             { "sw", new Point(-1, 0, 1) }
         };
 
-        public string RunPart1()
+        public string RunPart1(IEnumerable<string> testData)
         {
+            var input = testData.First().Split(',');
+
             // Start at home
             var current = new Point(0, 0, 0);
 
-            foreach (var direction in _input)
+            foreach (var direction in input)
             {
                 var point = actions[direction];
                 current = AddPoint(current, point);
@@ -34,14 +34,14 @@ namespace Chownus.AoC.Console
             return CalculateDistance(current).ToString();
         }
 
-        public string RunPart2()
+        public string RunPart2(IEnumerable<string> testData)
         {
+            var input = testData.First().Split(',');
             var current = new Point(0, 0, 0);
-            var path = new List<Point> { current };
 
             int max = 0;
 
-            foreach (var direction in _input)
+            foreach (var direction in input)
             {
                 var point = actions[direction];
                 current = AddPoint(current, point);
@@ -54,11 +54,6 @@ namespace Chownus.AoC.Console
             }
 
             return max.ToString();
-        }
-
-        public void Initialize(IEnumerable<string> input)
-        {
-            _input = input.First().Split(',');
         }
 
         private Point AddPoint(Point a, Point b)

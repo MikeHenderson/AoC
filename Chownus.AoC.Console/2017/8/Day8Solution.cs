@@ -7,7 +7,6 @@ namespace Chownus.AoC.Console
     public class Day8Solution : IAoCSolution
     {
         public int Day => 8;
-        private IEnumerable<string> _input;
 
         private static readonly IDictionary<string, Func<int, int, bool>> _operators = new Dictionary<string, Func<int, int, bool>>
         {
@@ -26,20 +25,20 @@ namespace Chownus.AoC.Console
         };
 
 
-        public string RunPart1()
+        public string RunPart1(IEnumerable<string> testData)
         {
             var registers = new Dictionary<string, int>();
 
-            foreach (var instruction in _input)
+            foreach (var instruction in testData)
                  ExecuteInstruction(instruction, registers);
 
             return registers.Max(x => x.Value).ToString();
         }
 
-        public string RunPart2()
+        public string RunPart2(IEnumerable<string> testData)
         {
             var registers = new Dictionary<string, int>();
-            return _input.Select(instruction => ExecuteInstruction(instruction, registers))
+            return testData.Select(instruction => ExecuteInstruction(instruction, registers))
                 .Max()
                 .ToString();
         }
@@ -68,11 +67,6 @@ namespace Chownus.AoC.Console
                 registers[targetRegister] = _modifiers[modifier](registers[targetRegister], modifierValue);
 
             return registers.Max(x => x.Value);
-        }
-
-        public void Initialize(IEnumerable<string> input)
-        {
-            _input = input;
         }
     }
 }

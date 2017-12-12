@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Chownus.AoC.Console;
 using Xunit;
 
@@ -7,10 +8,11 @@ namespace Chownus.AoC.Tests
     public class Day7Tests
     {
         private readonly IAoCSolution _testObject;
+        private readonly IList<string> _input;
 
         public Day7Tests()
         {
-            var input = new List<string>
+            _input = new List<string>
             {
                 "pbga (66)",
                 "xhth (57)",
@@ -28,20 +30,19 @@ namespace Chownus.AoC.Tests
             };
 
             _testObject = new Day7Solution();
-            _testObject.Initialize(input);
         }
 
         [Fact]
         public void Part1()
         {
-            var solution = _testObject.RunPart1();
+            var solution = _testObject.RunPart1(_input);
             Assert.Equal("tknk", solution);
         }
 
         [Fact]
         public void Part2()
         {
-            var solution = _testObject.RunPart2();
+            var solution = _testObject.RunPart2(_input);
             Assert.Equal("60", solution);
         }
     }

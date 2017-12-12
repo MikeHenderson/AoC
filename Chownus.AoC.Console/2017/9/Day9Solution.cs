@@ -1,24 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading;
 
 namespace Chownus.AoC.Console
 {
     public class Day9Solution : IAoCSolution
     {
         public int Day => 9;
-        public string RunPart1()
+
+        public string RunPart1(IEnumerable<string> testData)
         {
-            return _input.Sum(CalculateScore).ToString();
+            return testData.Sum(CalculateScore).ToString();
         }
 
-        public string RunPart2()
+        public string RunPart2(IEnumerable<string> testData)
         {
             //Remove characters we don't care about
-            var removedSkipped = ClearSkippedCharacters(_input.First());
+            var removedSkipped = ClearSkippedCharacters(testData.First());
 
             //Find matches and count
             var garbage = "<.*?>";
@@ -66,14 +64,5 @@ namespace Chownus.AoC.Console
             var skipCharacter = "!.";
             return Regex.Replace(input, skipCharacter, string.Empty);
         }
-
-        public void Initialize(IEnumerable<string> input)
-        {
-            _input = input;
-        }
-
-        private IEnumerable<string> _input;
-
-       
     }
 }

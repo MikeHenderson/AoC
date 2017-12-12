@@ -23,10 +23,7 @@ namespace Chownus.AoC.Tests
         [InlineData("{{<a!>},{<a!>},{<a!>},{<ab>}}", 3)]
         public void Part1(string sequence, int expectedScore)
         {
-            var input = new[] { sequence };
-            _testObject.Initialize(input);
-
-            var score = _testObject.RunPart1();
+            var score = _testObject.RunPart1(new[] { sequence });
 
             Assert.Equal(expectedScore.ToString(), score);
         }
@@ -41,10 +38,7 @@ namespace Chownus.AoC.Tests
         [InlineData("<{o\"i!a,<{i<a>", 10)]
         public void Part2(string sequence, int expectedCount)
         {
-            var input = new[] { sequence };
-            _testObject.Initialize(input);
-
-            var score = _testObject.RunPart2();
+            var score = _testObject.RunPart2(new[] { sequence });
 
             Assert.Equal(expectedCount.ToString(), score);
         }

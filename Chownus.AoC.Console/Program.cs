@@ -17,11 +17,8 @@ namespace Chownus.AoC.Console
                 var solution = (IAoCSolution) Activator.CreateInstance(impl);
                 var input = Utilities.ImportInputAsList(solution.Day);
 
-                solution.Initialize(input);
-                System.Console.WriteLine($"Day {solution.Day} - Part 1 Answer: {solution.RunPart1()}");
-
-                solution.Initialize(input);
-                System.Console.WriteLine($"Day {solution.Day} - Part 2 Answer: {solution.RunPart2()}");
+                System.Console.WriteLine($"Day {solution.Day} - Part 1 Answer: {solution.RunPart1(input)}");
+                System.Console.WriteLine($"Day {solution.Day} - Part 2 Answer: {solution.RunPart2(input)}");
             }
 
             System.Console.ReadKey();

@@ -7,10 +7,11 @@ namespace Chownus.AoC.Tests
     public class Day8Tests
     {
         private readonly IAoCSolution _testObject;
+        private readonly IList<string> _input;
 
         public Day8Tests()
         {
-            var input = new List<string>
+            _input = new List<string>
             {
                 "b inc 5 if a > 1",
                 "a inc 1 if b < 5",
@@ -19,20 +20,19 @@ namespace Chownus.AoC.Tests
             };
 
             _testObject = new Day8Solution();
-            _testObject.Initialize(input);
         }
 
         [Fact]
         public void Part1()
         {
-            var solution = _testObject.RunPart1();
+            var solution = _testObject.RunPart1(_input);
             Assert.Equal("1", solution);
         }
 
         [Fact]
         public void Part2()
         {
-            var solution = _testObject.RunPart2();
+            var solution = _testObject.RunPart2(_input);
             Assert.Equal("10", solution);
         }
     }

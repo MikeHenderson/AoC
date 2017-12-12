@@ -15,16 +15,14 @@ namespace Chownus.AoC.Tests
         [Fact]
         public void Part1()
         {
-            _testObject.Initialize(new[] { "3,4,1,5" });
-            var solution = _testObject.RunPart1();
+            var solution = _testObject.RunPart1(new[] { "3,4,1,5" });
             Assert.Equal("12", solution);
         }
 
         [Fact] 
         public void Part2()
         {
-            _testObject.Initialize(new[] { "1,2,3" });
-            var solution = _testObject.RunPart2();
+            var solution = _testObject.RunPart2(new[] { "1,2,3" });
             Assert.Equal("3efbe78a8d82f29979031a4aa0b16a9d", solution.ToLower());
         }
     }
