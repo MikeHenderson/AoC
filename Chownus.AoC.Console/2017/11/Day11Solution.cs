@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace Chownus.AoC.Console
@@ -28,10 +27,10 @@ namespace Chownus.AoC.Console
             foreach (var direction in input)
             {
                 var point = actions[direction];
-                current = AddPoint(current, point);
+                current = current.AddPoint(point);
             }
 
-            return CalculateDistance(current).ToString();
+            return current.CalculateDistance().ToString();
         }
 
         public string RunPart2(IEnumerable<string> testData)
@@ -44,11 +43,11 @@ namespace Chownus.AoC.Console
             foreach (var direction in input)
             {
                 var point = actions[direction];
-                current = AddPoint(current, point);
+                current = current.AddPoint(point);
 
                 // I can go the distance! I have found my way, if I can be-e strong! I know every mile would be worth my while
                 // if I can go the distance I'll be right where I-I-I.... belooooooooong!
-                var distance = CalculateDistance(current);
+                var distance = current.CalculateDistance();
                 if (distance > max)
                     max = distance;
             }
@@ -56,28 +55,5 @@ namespace Chownus.AoC.Console
             return max.ToString();
         }
 
-        private Point AddPoint(Point a, Point b)
-        {
-            return new Point(a.X + b.X, a.Y + b.Y, a.Z + b.Z);
-        }
-
-        private int CalculateDistance(Point p)
-        {
-            return (Math.Abs(p.X) + Math.Abs(p.Y) + Math.Abs(p.Z)) / 2;
-        }
-    }
-
-    public class Point
-    {
-        public Point(int x, int y, int z)
-        {
-            X = x;
-            Y = y;
-            Z = z;
-        }
-
-        public int X;
-        public int Y;
-        public int Z;
     }
 }
