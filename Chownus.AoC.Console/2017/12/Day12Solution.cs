@@ -11,61 +11,55 @@ namespace Chownus.AoC.Console
         public int Day => 12;
         public string RunPart1(IEnumerable<string> testData)
         {
-            var input = new Dictionary<int, IList<int>>();
+            var input = BuildGraph(testData);
             var visited = new List<int>();
-
-            foreach (var line in testData)
-            {
-                var parts = line.Split(new[] {"<->"}, StringSplitOptions.RemoveEmptyEntries)
-                    .Select(x => x.Trim())
-                    .ToList();
-
-                input.Add(int.Parse(parts[0]), parts[1].Split(',').Select(int.Parse).ToList());
-            }
-
-            var count = 0;
-
-            // LOL this is bad.....
-            for (int i = 0; i < 100; i++)
-            {
-                foreach (var kvp in input)
-                {
-                    var visitedKey = CanTalkWithRoot(kvp, input, visited);
-
-                    if (visitedKey != null)
-                    {
-                        if (!visited.Contains(kvp.Key))
-                            visited.Add(kvp.Key);
-
-                        foreach (var val in kvp.Value)
-                        {
-                            if (!visited.Contains(val))
-                                visited.Add(val);
-                        }
-
-                    }
-                }
-            }
+           
+            DoSearch(0, input, visited);
 
             return visited.Count.ToString();
         }
 
         public string RunPart2(IEnumerable<string> testData)
         {
-            return "";
+            var input = BuildGraph(testData);
+            var visited = new List<int>();
+            var groupCounter = 0;
+
+            foreach (var key in input.Keys)
+            {
+                if (visited.Contains(key)) continue;
+
+                groupCounter++;
+                DoSearch(key, input, visited);
+            }
+
+            return groupCounter.ToString();
         }
 
-        private int? CanTalkWithRoot(KeyValuePair<int, IList<int>> kvp, IDictionary<int, IList<int>> lookup, IEnumerable<int> visited)
+        private void DoSearch(int key, IDictionary<int, IList<int>> graph, IList<int> visited)
         {
-            if (kvp.Key == 0) return kvp.Key;
+            if (visited.Contains(key)) return;
 
-            if (kvp.Value.Intersect(visited).Any()) return kvp.Key;
+            visited.Add(key);
 
-            if (lookup[0].Contains(kvp.Key)) return kvp.Key;
+            foreach (var child in graph[key])
+                DoSearch(child, graph, visited);
+        }
 
-            if (lookup[kvp.Key].Contains(0)) return kvp.Key;
 
-            return null;
+        private IDictionary<int, IList<int>> BuildGraph(IEnumerable<string> testData)
+        {
+            var graph = new Dictionary<int, IList<int>>();
+            foreach (var line in testData)
+            {
+                var parts = line.Split(new[] { "<->" }, StringSplitOptions.RemoveEmptyEntries)
+                    .Select(x => x.Trim())
+                    .ToList();
+
+                graph.Add(int.Parse(parts[0]), parts[1].Split(',').Select(int.Parse).ToList());
+            }
+
+            return graph;
         }
     }
 }

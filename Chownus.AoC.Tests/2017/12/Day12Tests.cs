@@ -37,7 +37,7 @@ namespace Chownus.AoC.Tests
         [Fact]
         public void Part2()
         {
-            var solution = _testObject.RunPart1(_input);
+            var solution = _testObject.RunPart2(_input);
 
             Assert.Equal("2", solution);
         }
