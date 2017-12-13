@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Chownus.AoC.Console
+namespace Chownus.AoC.Console._2017._7
 {
-    public partial class Day7Solution : IAoCSolution
+    public class Solution : IAoCSolution
     {
         public int Day => 7;
 
         public string RunPart1(IEnumerable<string> testData)
         {
-            var input = testData.Select(x => new Node(x)).ToList();
+            var input = testData.Select(x => new Console.Day7Solution.Node(x)).ToList();
 
             foreach (var node in input)
                 node.GenerateChildNodes(input);
@@ -25,7 +25,7 @@ namespace Chownus.AoC.Console
 
         public string RunPart2(IEnumerable<string> testData)
         {
-            var input = testData.Select(x => new Node(x)).ToList();
+            var input = testData.Select(x => new Console.Day7Solution.Node(x)).ToList();
 
             foreach (var node in input)
                 node.GenerateChildNodes(input);
@@ -46,7 +46,7 @@ namespace Chownus.AoC.Console
 
         public void Initialize(IEnumerable<string> testData)
         {
-            var input = testData.Select(x => new Node(x)).ToList();
+            var input = testData.Select(x => new Console.Day7Solution.Node(x)).ToList();
 
             foreach (var node in input)
                 node.GenerateChildNodes(input);

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using Chownus.AoC.Console;
+using Chownus.AoC.Console._2017._7;
 using Xunit;
 
-namespace Chownus.AoC.Tests
+namespace Chownus.AoC.Tests._2017._7
 {
     public class Day7Tests
     {
@@ -29,7 +29,7 @@ namespace Chownus.AoC.Tests
                 "cntj (57)"
             };
 
-            _testObject = new Day7Solution();
+            _testObject = new Solution();
         }
 
         [Fact]

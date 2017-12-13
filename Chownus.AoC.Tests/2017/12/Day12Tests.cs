@@ -1,9 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Chownus.AoC.Console;
+using Chownus.AoC.Console._2017._12;
 using Xunit;
 
-namespace Chownus.AoC.Tests
+namespace Chownus.AoC.Tests._2017._12
 {
     public class Day12Tests
     {
@@ -13,7 +13,7 @@ namespace Chownus.AoC.Tests
 
         public Day12Tests()
         {
-            _testObject = new Day12Solution();
+            _testObject = new Solution();
             _input = new List<string>
             {
                 "0 <-> 2",

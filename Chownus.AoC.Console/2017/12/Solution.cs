@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Chownus.AoC.Console
+namespace Chownus.AoC.Console._2017._12
 {
-    public class Day12Solution : IAoCSolution
+    public class Solution : IAoCSolution
     {
         private IEnumerable<string> _input;
 

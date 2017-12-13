@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using Chownus.AoC.Console;
+using Chownus.AoC.Console._2017._8;
 using Xunit;
 
-namespace Chownus.AoC.Tests
+namespace Chownus.AoC.Tests._2017._8
 {
     public class Day8Tests
     {
@@ -19,7 +20,7 @@ namespace Chownus.AoC.Tests
                 "c inc -20 if c == 10",
             };
 
-            _testObject = new Day8Solution();
+            _testObject = new Solution();
         }
 
         [Fact]

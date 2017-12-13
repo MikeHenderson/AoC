@@ -1,7 +1,8 @@
 ﻿using Chownus.AoC.Console;
+using Chownus.AoC.Console._2017._10;
 using Xunit;
 
-namespace Chownus.AoC.Tests
+namespace Chownus.AoC.Tests._2017._10
 {
     public class Day10Tests
     {
@@ -9,7 +10,7 @@ namespace Chownus.AoC.Tests
 
         public Day10Tests()
         {
-            _testObject = new Day10Solution();
+            _testObject = new Solution();
         }
 
         [Fact]

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Chownus.AoC.Console
+namespace Chownus.AoC.Console._2017._11
 {
-    public class Day11Solution : IAoCSolution
+    public class Solution : IAoCSolution
     {
         public int Day => 11;
 

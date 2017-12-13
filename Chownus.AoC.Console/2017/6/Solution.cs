@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Chownus.AoC.Console
+namespace Chownus.AoC.Console._2017._6
 {
-    public class Day6Solution : IAoCSolution
+    public class Solution : IAoCSolution
     {
         public int Day => 6;
 

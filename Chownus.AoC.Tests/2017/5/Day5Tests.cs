@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using Chownus.AoC.Console;
+using Chownus.AoC.Console._2017._5;
 using Xunit;
 
-namespace Chownus.AoC.Tests
+namespace Chownus.AoC.Tests._2017._5
 {
     public class Day5Tests
     {
@@ -12,7 +13,7 @@ namespace Chownus.AoC.Tests
         public Day5Tests()
         {
             _input = new List<string> { "0", "3", "0", "1", "-3" };
-            _testObject = new Day5Solution();
+            _testObject = new Solution();
         }
 
         [Fact]

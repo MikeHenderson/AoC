@@ -1,18 +1,19 @@
 ﻿using System.Collections.Generic;
 using Chownus.AoC.Console;
+using Chownus.AoC.Console._2017._6;
 using Xunit;
 
-namespace Chownus.AoC.Tests
+namespace Chownus.AoC.Tests._2017._6
 {
     public class Day6Tests
     {
         private readonly IAoCSolution _testObject;
-        private IList<string> _input;
+        private readonly IList<string> _input;
 
         public Day6Tests()
         {
             _input = new List<string> { "0 2 7 0"};
-            _testObject = new Day6Solution();
+            _testObject = new Solution();
         }
 
         [Fact]
