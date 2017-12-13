@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Chownus.AoC.Console.Common.Models;
 
 namespace Chownus.AoC.Console._2017._7
 {
@@ -9,7 +10,7 @@ namespace Chownus.AoC.Console._2017._7
 
         public string RunPart1(IEnumerable<string> testData)
         {
-            var input = testData.Select(x => new Console.Day7Solution.Node(x)).ToList();
+            var input = testData.Select(x => new WeightedNode(x)).ToList();
 
             foreach (var node in input)
                 node.GenerateChildNodes(input);
@@ -25,7 +26,7 @@ namespace Chownus.AoC.Console._2017._7
 
         public string RunPart2(IEnumerable<string> testData)
         {
-            var input = testData.Select(x => new Console.Day7Solution.Node(x)).ToList();
+            var input = testData.Select(x => new WeightedNode(x)).ToList();
 
             foreach (var node in input)
                 node.GenerateChildNodes(input);
@@ -44,12 +45,5 @@ namespace Chownus.AoC.Console._2017._7
             return (head.Weight + weightDiff).ToString();
         }
 
-        public void Initialize(IEnumerable<string> testData)
-        {
-            var input = testData.Select(x => new Console.Day7Solution.Node(x)).ToList();
-
-            foreach (var node in input)
-                node.GenerateChildNodes(input);
-        }
     }
 }

@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace Chownus.AoC.Console
+namespace Chownus.AoC.Console.Common.Models
 {
-    public class Point
+    public class HexPoint
     {
-        public Point(int x, int y, int z)
+        public HexPoint(int x, int y, int z)
         {
             X = x;
             Y = y;
@@ -16,12 +16,12 @@ namespace Chownus.AoC.Console
         public int Z;
 
 
-        public Point AddPoint(Point other)
+        public HexPoint AddPoint(HexPoint other)
         {
-            return new Point(this.X + other.X, this.Y + other.Y, this.Z + other.Z);
+            return new HexPoint(X + other.X, Y + other.Y, Z + other.Z);
         }
 
-        public int CalculateDistance()
+        public int CalculateDistanceToRoot()
         {
             return (Math.Abs(X) + Math.Abs(Y) + Math.Abs(Z)) / 2;
         }

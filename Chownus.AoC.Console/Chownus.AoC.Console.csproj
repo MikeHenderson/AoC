@@ -43,16 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="2017\11\Point.cs" />
     <Compile Include="2017\12\Solution.cs" />
     <Compile Include="2017\11\Solution.cs" />
     <Compile Include="2017\10\Solution.cs" />
-    <Compile Include="2017\7\Node.cs" />
+    <Compile Include="Common\Helpers\LinkedListHelper.cs" />
+    <Compile Include="Common\Models\WeightedNode.cs" />
     <Compile Include="2017\9\Solution.cs" />
     <Compile Include="2017\8\Solution.cs" />
     <Compile Include="2017\7\Solution.cs" />
     <Compile Include="2017\6\Solution.cs" />
     <Compile Include="2017\5\Solution.cs" />
+    <Compile Include="Common\Models\HexPoint.cs" />
     <Compile Include="IAoCSolution.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

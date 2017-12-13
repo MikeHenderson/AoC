@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Chownus.AoC.Console.Common.Helpers;
 
 namespace Chownus.AoC.Console._2017._10
 {
@@ -60,59 +61,11 @@ namespace Chownus.AoC.Console._2017._10
         {
             foreach (var direction in input)
             {
-                current = ReverseSection(current, direction);
+                current = current.ReverseSection(direction);
 
-                current = Skip(current, skipCount);
+                current = current.Skip(skipCount);
 
                 skipCount++;
-            }
-
-            return current;
-        }
-
-        private LinkedListNode<T> ReverseSection<T>(LinkedListNode<T> current, int direction)
-        {
-            var subset = new T[direction];
-
-            for (int i = 0; i < direction; i++)
-            {
-                subset[i] = current.Value;
-
-                if (i < direction - 1)
-                    current = GetNextOrFirst(current);
-            }
-
-            for (int i = 0; i < direction; i++)
-            {
-                current.Value = subset[i];
-
-                if (i < direction - 1)
-                    current = GetPreviousOrLast(current);
-            }
-
-            // Skip ahead forward to the next one
-            return Skip(current, direction);
-        }
-
-        // Create the behavior of a circularly linked list
-        private LinkedListNode<T> GetNextOrFirst<T>(LinkedListNode<T> current)
-        {
-            return current.Next ?? current.List.First;
-        }
-
-        private LinkedListNode<T> GetPreviousOrLast<T>(LinkedListNode<T> current)
-        {
-            return current.Previous ?? current.List.Last;
-        }
-
-        private LinkedListNode<T> Skip<T>(LinkedListNode<T> current, int count)
-        {
-            if (count == 0) return current;
-
-            while (count > 0)
-            {
-                current = GetNextOrFirst(current);
-                count--;
             }
 
             return current;
