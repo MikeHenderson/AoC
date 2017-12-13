@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="2017\13\Direction.cs" />
+    <Compile Include="2017\13\PacketScanner.cs" />
     <Compile Include="2017\13\Solution.cs" />
     <Compile Include="2017\12\Solution.cs" />
     <Compile Include="2017\11\Solution.cs" />

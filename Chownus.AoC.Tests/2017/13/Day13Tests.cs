@@ -37,5 +37,7 @@ namespace Chownus.AoC.Tests._2017._13
 
             Assert.Equal("10", solution);
         }
+
+
     }
 }

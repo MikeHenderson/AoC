@@ -1,61 +1,58 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace Chownus.AoC.Console._2017._13
 {
-    public class PacketScanner
-    {
-        public int CurrentDepth = 0;
-        public int Depth;
-        public Direction Direction;
-
-        public void Advance()
-        {
-            if (Direction == Direction.Down)
-            {
-                if (CurrentDepth == Depth - 1)
-                {
-                    CurrentDepth--;
-                    Direction = Direction.Up;
-                }
-                else
-                {
-                    CurrentDepth++;
-                }
-            }
-            else
-            {
-                if (CurrentDepth == 0)
-                {
-                    CurrentDepth++;
-                    Direction = Direction.Down;
-                }
-                else
-                {
-                    CurrentDepth--;
-                }
-            }
-        }
-
-    }
-
-    public enum Direction
-    {
-        Down,
-        Up
-    }
-
     public class Solution : IAoCSolution
     {
         public int Day => 13;
 
         public string RunPart1(IEnumerable<string> testData)
         {
+            var grid = BuildGrid(testData);
+
+            return CalculateSeverity(grid, 0).ToString();
+        }
+
+        public string RunPart2(IEnumerable<string> testData)
+        {
+            var grid = BuildGrid(testData);
+            var minDelay = 0;
+
+            while (CalculateSeverity(grid, minDelay, true) > 0)
+            {
+                minDelay++;
+            }
+
+            return minDelay.ToString();
+        }
+
+        private int CalculateSeverity(IDictionary<int, PacketScanner> grid, int delay, bool brakIfCaught = false)
+        {
+            int severity = 0;
+
+            for (int j = 0; j <= grid.Keys.Last(); j++)
+            {
+                if (grid[j] == null)
+                    continue;
+
+                if (grid[j].WillHit(j + delay))
+                {
+                    if (brakIfCaught) { severity = 1; break;}
+                    severity += j * grid[j].Depth;
+                }
+
+            }
+
+            return severity;
+        }
+
+        private IDictionary<int, PacketScanner> BuildGrid(IEnumerable<string> input)
+        {
             var grid = new Dictionary<int, PacketScanner>();
 
             var counter = 0;
-            foreach (var line in testData)
+            foreach (var line in input)
             {
                 var parts = line.Split(':').Select(x => int.Parse(x.Trim())).ToList();
 
@@ -67,50 +64,17 @@ namespace Chownus.AoC.Console._2017._13
                         counter++;
                     }
 
-                    grid.Add(counter, new PacketScanner {Depth = parts[1]});
+                    grid.Add(counter, new PacketScanner { Depth = parts[1] });
                 }
                 else
                 {
-                    grid.Add(counter, new PacketScanner{ Depth = parts[1] });
+                    grid.Add(counter, new PacketScanner { Depth = parts[1] });
                 }
 
                 counter++;
             }
 
-            int severity = 0;
-
-            for (int i = 0; i <= grid.Keys.Last(); i++)
-            {
-                if (grid[i] == null)
-                {
-                    AdvanceScanners(grid);
-                    continue;
-                }
-
-                if (grid[i].CurrentDepth == 0)
-                    severity += i * grid[i].Depth;
-
-                AdvanceScanners(grid);
-            }
-
-            return severity.ToString();
-
-        }
-
-        public void AdvanceScanners(IDictionary<int, PacketScanner> scanners)
-        {
-            foreach (var scanner in scanners.Select(x => x.Value))
-            {
-                if (scanner == null) continue;
-
-                scanner.Advance();
-            }
-        }
-
-
-        public string RunPart2(IEnumerable<string> testData)
-        {
-            return null;
+            return grid;
         }
     }
 }

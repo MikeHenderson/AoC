@@ -10,7 +10,8 @@ namespace Chownus.AoC.Console
         {
             var solutionImplementations = Assembly.GetExecutingAssembly()
                 .GetTypes()
-                .Where(type => typeof(IAoCSolution).IsAssignableFrom(type) && !type.IsInterface);
+                .Where(type => typeof(IAoCSolution).IsAssignableFrom(type) && !type.IsInterface)
+                .Reverse();
 
             foreach (var impl in solutionImplementations)
             {
