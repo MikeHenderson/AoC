@@ -27,21 +27,23 @@ namespace Chownus.AoC.Console._2017._13
             return minDelay.ToString();
         }
 
-        private int CalculateSeverity(IDictionary<int, PacketScanner> grid, int delay, bool brakIfCaught = false)
+        private int CalculateSeverity(IDictionary<int, PacketScanner> grid, int delay, bool breakIfCaught = false)
         {
             int severity = 0;
 
             for (int j = 0; j <= grid.Keys.Last(); j++)
             {
-                if (grid[j] == null)
+                if (grid[j] == null || !grid[j].WillHit(j + delay))
                     continue;
 
-                if (grid[j].WillHit(j + delay))
+                // Short circuit for time's sake
+                if (breakIfCaught)
                 {
-                    if (brakIfCaught) { severity = 1; break;}
-                    severity += j * grid[j].Depth;
+                    severity = 1;
+                    break;
                 }
 
+                severity += j * grid[j].Depth;
             }
 
             return severity;
