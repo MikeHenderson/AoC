@@ -78,6 +78,11 @@
       <Name>Chownus.AoC.Console</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="2014\" />
+    <Folder Include="2015\" />
+    <Folder Include="2016\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
