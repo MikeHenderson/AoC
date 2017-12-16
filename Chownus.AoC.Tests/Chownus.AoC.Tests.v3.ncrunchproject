@@ -4,6 +4,39 @@
       <NamedTestSelector>
         <TestName>Chownus.AoC.Tests._2017._10.Day10Tests.Part1</TestName>
       </NamedTestSelector>
+      <FixtureTestSelector>
+        <FixtureName>Chownus.AoC.Tests._2017._10.Day10Tests</FixtureName>
+      </FixtureTestSelector>
+      <NamedTestSelector>
+        <TestName>Chownus.AoC.Tests._2017._10.Day10Tests.Part2</TestName>
+      </NamedTestSelector>
+      <FixtureTestSelector>
+        <FixtureName>Chownus.AoC.Tests._2017._11.Day11Tests</FixtureName>
+      </FixtureTestSelector>
+      <FixtureTestSelector>
+        <FixtureName>Chownus.AoC.Tests._2017._12.Day12Tests</FixtureName>
+      </FixtureTestSelector>
+      <FixtureTestSelector>
+        <FixtureName>Chownus.AoC.Tests._2017._13.Day13Tests</FixtureName>
+      </FixtureTestSelector>
+      <FixtureTestSelector>
+        <FixtureName>Chownus.AoC.Tests._2017._14.Day14Tests</FixtureName>
+      </FixtureTestSelector>
+      <FixtureTestSelector>
+        <FixtureName>Chownus.AoC.Tests._2017._5.Day5Tests</FixtureName>
+      </FixtureTestSelector>
+      <FixtureTestSelector>
+        <FixtureName>Chownus.AoC.Tests._2017._6.Day6Tests</FixtureName>
+      </FixtureTestSelector>
+      <FixtureTestSelector>
+        <FixtureName>Chownus.AoC.Tests._2017._7.Day7Tests</FixtureName>
+      </FixtureTestSelector>
+      <FixtureTestSelector>
+        <FixtureName>Chownus.AoC.Tests._2017._8.Day8Tests</FixtureName>
+      </FixtureTestSelector>
+      <FixtureTestSelector>
+        <FixtureName>Chownus.AoC.Tests._2017._9.Day9Tests</FixtureName>
+      </FixtureTestSelector>
     </IgnoredTests>
   </Settings>
 </ProjectConfiguration>
