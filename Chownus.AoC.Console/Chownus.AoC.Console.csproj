@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="2017\16\Solution.cs" />
     <Compile Include="2017\15\Solution.cs" />
     <Compile Include="2017\14\Solution.cs" />
     <Compile Include="2017\13\PacketScanner.cs" />
@@ -67,6 +68,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="2017\16\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="2017\15\input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
