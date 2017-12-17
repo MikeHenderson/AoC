@@ -11,12 +11,12 @@ namespace Chownus.AoC.Console
 
         public static string ImportInput(int day, int year)
         {
-            return File.ReadAllText(FormatPath(day));
+            return File.ReadAllText(FormatPath(day, year));
         }
 
         public static IList<string> ImportInputAsList(int day, int year)
         {
-            return File.ReadLines(FormatPath(day)).ToList();
+            return File.ReadLines(FormatPath(day, year)).ToList();
         }
 
     }

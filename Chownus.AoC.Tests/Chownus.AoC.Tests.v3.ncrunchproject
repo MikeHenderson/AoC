@@ -37,6 +37,15 @@
       <FixtureTestSelector>
         <FixtureName>Chownus.AoC.Tests._2017._9.Day9Tests</FixtureName>
       </FixtureTestSelector>
+      <FixtureTestSelector>
+        <FixtureName>Chownus.AoC.Tests._2017._16.Day16Tests</FixtureName>
+      </FixtureTestSelector>
+      <FixtureTestSelector>
+        <FixtureName>Chownus.AoC.Tests._2017._17.Day17Tests</FixtureName>
+      </FixtureTestSelector>
+      <FixtureTestSelector>
+        <FixtureName>Chownus.AoC.Tests._2017._15.Day15Tests</FixtureName>
+      </FixtureTestSelector>
     </IgnoredTests>
   </Settings>
 </ProjectConfiguration>
