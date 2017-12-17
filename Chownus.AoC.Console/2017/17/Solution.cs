@@ -16,9 +16,8 @@ namespace Chownus.AoC.Console._2017._17
 
             for (int i = 1; i < 2018; i++)
             {
-                current = (current + skip) % list.Count;
-                list.Insert(current + 1, i);
-                current = (current + 1) % list.Count;
+                current = (current + skip) % list.Count + 1;
+                list.Insert(current, i);
             }
 
             return list[current + 1].ToString();
@@ -26,7 +25,20 @@ namespace Chownus.AoC.Console._2017._17
 
         public string RunPart2(IEnumerable<string> testData)
         {
-            return string.Empty;
+            var skip = int.Parse(testData.First());
+            var current = 0;
+            var cache = 0;
+            var count = 1;
+
+            for (int i = 1; i < 50000000; i++)
+            {
+                current = (current + skip) % count + 1;
+                count++;
+
+                if (current == 1) cache = i;
+            }
+
+            return cache.ToString();
         }
     }
 }

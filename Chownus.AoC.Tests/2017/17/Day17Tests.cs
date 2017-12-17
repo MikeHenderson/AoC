@@ -30,7 +30,8 @@ namespace Chownus.AoC.Tests._2017._17
         [Fact]
         public void Part2()
         {
-
+            var solution = _testObject.RunPart2(_input);
+            Assert.Equal("1222153", solution);
         }
     }
 }
