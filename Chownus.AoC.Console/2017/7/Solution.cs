@@ -7,6 +7,7 @@ namespace Chownus.AoC.Console._2017._7
     public class Solution : IAoCSolution
     {
         public int Day => 7;
+        public int Year => 2017;
 
         public string RunPart1(IEnumerable<string> testData)
         {

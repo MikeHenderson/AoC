@@ -7,14 +7,14 @@ namespace Chownus.AoC.Console
 {
     public static class Utilities
     {
-        private static readonly Func<int, string> FormatPath = day => $".\\2017\\{day}\\input.txt";
+        private static readonly Func<int, int, string> FormatPath = (day, year) => $".\\{year}\\{day}\\input.txt";
 
-        public static string ImportInput(int day)
+        public static string ImportInput(int day, int year)
         {
             return File.ReadAllText(FormatPath(day));
         }
 
-        public static IList<string> ImportInputAsList(int day)
+        public static IList<string> ImportInputAsList(int day, int year)
         {
             return File.ReadLines(FormatPath(day)).ToList();
         }

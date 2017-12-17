@@ -8,6 +8,8 @@ namespace Chownus.AoC.Console._2017._14
     public class Solution : IAoCSolution
     {
         public int Day => 14;
+        public int Year => 2017;
+
         public string RunPart1(IEnumerable<string> testData)
         {
             var hashKey = testData.First();

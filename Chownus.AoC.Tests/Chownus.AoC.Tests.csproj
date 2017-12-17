@@ -84,7 +84,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="2014\" />
     <Folder Include="2015\" />
     <Folder Include="2016\" />
   </ItemGroup>

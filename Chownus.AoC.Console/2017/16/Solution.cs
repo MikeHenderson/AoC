@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading;
 
 namespace Chownus.AoC.Console._2017._16
 {
     public class Solution : IAoCSolution
     {
         public int Day => 16;
+        public int Year => 2017;
 
         private static Func<string, MatchCollection> getDigits = s => Regex.Matches(s, "\\d+");
         private readonly IList<char> alphabet = "abcdefghijklmnopqrstuvwxyz".ToCharArray();

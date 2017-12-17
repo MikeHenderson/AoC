@@ -16,10 +16,10 @@ namespace Chownus.AoC.Console
             foreach (var impl in solutionImplementations)
             {
                 var solution = (IAoCSolution) Activator.CreateInstance(impl);
-                var input = Utilities.ImportInputAsList(solution.Day);
+                var input = Utilities.ImportInputAsList(solution.Day, solution.Year);
 
-                System.Console.WriteLine($"Day {solution.Day} - Part 1 Answer: {solution.RunPart1(input)}");
-                System.Console.WriteLine($"Day {solution.Day} - Part 2 Answer: {solution.RunPart2(input)}");
+                System.Console.WriteLine($"Day {solution.Day}, {solution.Year} - Part 1 Answer: {solution.RunPart1(input)}");
+                System.Console.WriteLine($"Day {solution.Day}, {solution.Year} - Part 2 Answer: {solution.RunPart2(input)}");
             }
 
             System.Console.ReadKey();

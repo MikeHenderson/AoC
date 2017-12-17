@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Chownus.AoC.Console.Common;
 using Chownus.AoC.Console.Common.Models;
 
 namespace Chownus.AoC.Console._2017._11
@@ -8,6 +7,7 @@ namespace Chownus.AoC.Console._2017._11
     public class Solution : IAoCSolution
     {
         public int Day => 11;
+        public int Year => 2017;
 
         private readonly IDictionary<string, HexPoint> _actions = new Dictionary<string, HexPoint>
         {

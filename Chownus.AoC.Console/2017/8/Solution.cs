@@ -7,6 +7,7 @@ namespace Chownus.AoC.Console._2017._8
     public class Solution : IAoCSolution
     {
         public int Day => 8;
+        public int Year => 2017;
 
         private static readonly IDictionary<string, Func<int, int, bool>> _operators = new Dictionary<string, Func<int, int, bool>>
         {

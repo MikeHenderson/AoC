@@ -7,7 +7,8 @@ namespace Chownus.AoC.Console._2017._9
     public class Solution : IAoCSolution
     {
         public int Day => 9;
-
+        public int Year => 2017;
+        
         public string RunPart1(IEnumerable<string> testData)
         {
             return testData.Sum(CalculateScore).ToString();

@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 
 namespace Chownus.AoC.Console._2017._15
 {
     public class Solution : IAoCSolution
     {
         public int Day => 15;
+        public int Year => 2017;
 
         public string RunPart1(IEnumerable<string> testData)
         {
