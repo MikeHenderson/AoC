@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Chownus.AoC.Console._2017._18
 {
@@ -13,12 +13,12 @@ namespace Chownus.AoC.Console._2017._18
         public string RunPart1(IEnumerable<string> testData)
         {
             var commands = testData.ToList();
-            var registers = new Dictionary<char, int>();
-            int lastSoundPlayed = 0;
+            var registers = new Dictionary<char, long>();
+            long lastSoundPlayed = 0;
             bool received = false;
             int i = 0;
 
-            while(i < commands.Count && !received)
+            while (!received)
             {
                 var parts = commands[i].Split(' ');
                 var x = parts[1][0];
@@ -49,14 +49,14 @@ namespace Chownus.AoC.Console._2017._18
                         break;
 
                     case "rcv":
-                        if(registers[x] != 0)
+                        if (registers[x] != 0)
                             received = true;
                         break;
 
                     case "jgz":
                         if (registers[x] > 0)
                         {
-                            i += GetValue(parts[2], registers);
+                            i += (int)GetValue(parts[2], registers);
                             continue;
                         }
                         break;
@@ -68,18 +68,28 @@ namespace Chownus.AoC.Console._2017._18
             return lastSoundPlayed.ToString();
         }
 
-        private int GetValue(string s, IDictionary<char, int> registers)
+        private long GetValue(string s, IDictionary<char, long> registers)
         {
-            var isDigit = int.TryParse(s, out var temp);
+            var isDigit = long.TryParse(s, out var temp);
             if (isDigit) return temp;
 
             return registers.ContainsKey(s[0]) ? registers[s[0]] : 0;
         }
 
-        
+
         public string RunPart2(IEnumerable<string> testData)
         {
-            throw new System.NotImplementedException();
+            var commands = testData.ToList();
+            var a = new DuetProgram(0);
+            var b = new DuetProgram(1);
+
+            while (!a.Terminated && !b.Terminated)
+            {
+                a.RunNextCommand(commands, b);
+                b.RunNextCommand(commands, a);
+            }
+
+            return b.SentCount.ToString();
         }
     }
 }

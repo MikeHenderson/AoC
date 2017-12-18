@@ -46,6 +46,7 @@
     <Compile Include="2015\3\Solution.cs" />
     <Compile Include="2015\2\Solution.cs" />
     <Compile Include="2015\1\Solution.cs" />
+    <Compile Include="2017\18\DuetProgram.cs" />
     <Compile Include="2017\18\Solution.cs" />
     <Compile Include="2017\17\Solution.cs" />
     <Compile Include="2017\16\Solution.cs" />
