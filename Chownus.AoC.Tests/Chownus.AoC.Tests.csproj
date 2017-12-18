@@ -56,6 +56,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="2015\3\Tests.cs" />
     <Compile Include="2015\2\Day2Tests.cs" />
     <Compile Include="2015\1\Day1Tests.cs" />
     <Compile Include="2017\17\Day17Tests.cs" />

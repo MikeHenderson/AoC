@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="2015\3\Solution.cs" />
     <Compile Include="2015\2\Solution.cs" />
     <Compile Include="2015\1\Solution.cs" />
     <Compile Include="2017\17\Solution.cs" />
@@ -71,6 +72,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="2015\3\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="2015\2\input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
