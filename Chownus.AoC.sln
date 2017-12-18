@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chownus.AoC.Tests", "Chownus.AoC.Tests\Chownus.AoC.Tests.csproj", "{9E8B63E8-228E-480E-A70F-C625BAAE1D64}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chownus.AoC.Console", "Chownus.AoC.Console\Chownus.AoC.Console.csproj", "{50FB5FE9-E2C8-4B28-BD45-6D5315237958}"
 EndProject
 Global
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9E8B63E8-228E-480E-A70F-C625BAAE1D64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9E8B63E8-228E-480E-A70F-C625BAAE1D64}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9E8B63E8-228E-480E-A70F-C625BAAE1D64}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9E8B63E8-228E-480E-A70F-C625BAAE1D64}.Release|Any CPU.Build.0 = Release|Any CPU
 		{50FB5FE9-E2C8-4B28-BD45-6D5315237958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{50FB5FE9-E2C8-4B28-BD45-6D5315237958}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50FB5FE9-E2C8-4B28-BD45-6D5315237958}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -24,5 +18,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {00132100-37CF-4447-9941-5CCDAE08B2E1}
 	EndGlobalSection
 EndGlobal
