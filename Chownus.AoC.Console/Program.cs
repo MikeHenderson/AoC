@@ -16,6 +16,8 @@ namespace Chownus.AoC.Console
             foreach (var impl in solutionImplementations)
             {
                 var solution = (IAoCSolution) Activator.CreateInstance(impl);
+
+                if (solution.Year == 2015) continue;
                 var input = Utilities.ImportInputAsList(solution.Day, solution.Year);
 
                 System.Console.WriteLine($"Day {solution.Day}, {solution.Year} - Part 1 Answer: {solution.RunPart1(input)}");
