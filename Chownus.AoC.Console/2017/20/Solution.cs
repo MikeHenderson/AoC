@@ -37,7 +37,7 @@ namespace Chownus.AoC.Console._2017._20
                 })
                 .ToList();
 
-            for(int i = 0; i < 999999; i++)
+            for(int i = 0; i < 10000; i++)
                 particles.ForEach(x => x.Tick());
 
             return particles.OrderBy(x => x.GetDistance()).First().Index.ToString();
@@ -45,7 +45,44 @@ namespace Chownus.AoC.Console._2017._20
 
         public string RunPart2(IEnumerable<string> testData)
         {
-            throw new NotImplementedException();
+            var particles = testData.Select(line => getDigits(line))
+                .Select((values, i) => new Particle
+                {
+                    Index = i,
+
+                    XPos = values[0],
+                    YPos = values[1],
+                    ZPos = values[2],
+
+                    XVel = values[3],
+                    YVel = values[4],
+                    ZVel = values[5],
+
+                    XAcc = values[6],
+                    YAcc = values[7],
+                    ZAcc = values[8]
+                })
+                .ToList();
+
+            var countToEnd = 10000;
+
+            while (countToEnd > 0)
+            {
+                // Tick
+                particles.ForEach(x => x.Tick());
+                var collisions = particles.GroupBy(x => $"{x.XPos}{x.YPos}{x.ZPos}").Where(x => x.Count() > 1).ToDictionary(g => g.Key, g => g.ToList());
+
+                if (!collisions.Any())
+                    countToEnd--;
+
+                foreach (var collision in collisions)
+                {
+                    foreach(var p in collision.Value)
+                        particles.Remove(particles.Single(x => x.Index == p.Index)); // Not very performant ain't it?
+                }
+            }
+
+            return particles.Count.ToString();
         }
     }
 
@@ -67,11 +104,6 @@ namespace Chownus.AoC.Console._2017._20
         public long GetDistance()
         {
             return Math.Abs(XPos) + Math.Abs(YPos) + Math.Abs(ZPos);
-        }
-
-        public string GetPosition()
-        {
-            return $"{XPos},{YPos},{ZPos}";
         }
 
         public void Tick()
