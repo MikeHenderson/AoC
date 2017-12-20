@@ -217,7 +217,7 @@ namespace Chownus.AoC.Console._2017._19
 
         private bool IsLetter(char c)
         {
-            return Regex.IsMatch(c.ToString(), "[A-Z]");
+            return Regex.IsMatch(c.ToString(), "[A-ZVel]");
         }
 
         // bit of a hack
