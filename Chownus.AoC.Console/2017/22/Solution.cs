@@ -37,12 +37,13 @@ namespace Chownus.AoC.Console._2017._22
 
             while (countdown > 0)
             {
-                bool isInfected = IsInfected(c, map);
+                if(!map.ContainsKey((c.X,c.Y))) map.Add((c.X,c.Y), false);
+                bool isInfected = map[(c.X, c.Y)];
 
                 c.Turn(isInfected ? 1 : -1);
 
-                UpdateMap(c, map, !isInfected, ref burstCounter);
-
+                if (isInfected) burstCounter++;
+                map[(c.X, c.Y)] = !isInfected;
 
                 //The virus carrier moves forward one node in the direction it is facing.
                 c.Move();
@@ -55,25 +56,60 @@ namespace Chownus.AoC.Console._2017._22
 
         public string RunPart2(IEnumerable<string> testData)
         {
-            throw new NotImplementedException();
-        }
+            var input = testData.ToList();
+            var map = new Dictionary<(int, int), char>();
+            var midX = input.Count / 2;
+            var midY = input.First().Length / 2;
 
-        private bool IsInfected(Carrier c, IDictionary<(int,int), bool> map)
-        {
-            if (map.ContainsKey((c.X, c.Y)))
-                return map[(c.X, c.Y)];
+            var j = 0;
 
-            return false;
-        }
+            foreach (var line in input)
+            {
+                for (int i = 0; i < line.Length; i++)
+                {
+                    map.Add((i - midX, j - midY), line[i] == '#' ? 'I' : 'C');
+                }
 
-        private void UpdateMap(Carrier c, IDictionary<(int, int), bool> map, bool isInfected, ref int counter)
-        {
-            if (map.ContainsKey((c.X, c.Y)))
-                map[(c.X, c.Y)] = isInfected;
-            else 
-                map.Add((c.X, c.Y), isInfected);
+                j++;
+            }
 
-            if (isInfected) counter++;
+            var c = new Carrier();
+
+            int countdown = 10000000;
+            int burstCounter = 0;
+
+            while (countdown > 0)
+            {
+                if (!map.ContainsKey((c.X, c.Y))) map.Add((c.X, c.Y), 'C');
+                var current = map[(c.X, c.Y)];
+
+                if (current == 'C')
+                {
+                    c.Turn(-1);
+                    map[(c.X, c.Y)] = 'W';
+                }
+                else if (current == 'I')
+                {
+                    c.Turn(1);
+                    map[(c.X, c.Y)] = 'F';
+                }
+                else if (current == 'F')
+                {
+                    c.Reverse();
+                    map[(c.X, c.Y)] = 'C';
+                }
+                else
+                {
+                    burstCounter++;
+                    map[(c.X, c.Y)] = 'I';
+                }
+
+                c.Move();
+
+                countdown--;
+            }
+
+            return burstCounter.ToString();
         }
     }
 
@@ -124,6 +160,18 @@ namespace Chownus.AoC.Console._2017._22
                     Facing = dir[dir.IndexOf(Facing) + rotation];
                     return;
             }
+        }
+
+        public void Reverse()
+        {
+            if (Facing == 'n')
+                Facing = 's';
+            else if (Facing == 's')
+                Facing = 'n';
+            else if (Facing == 'e')
+                Facing = 'w';
+            else
+                Facing = 'e';
         }
     }
 }
