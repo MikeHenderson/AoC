@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Chownus.AoC.Console.Common;
 
 namespace Chownus.AoC.Console._2017._18
 {
@@ -78,8 +79,8 @@ namespace Chownus.AoC.Console._2017._18
         public string RunPart2(IEnumerable<string> testData)
         {
             var commands = testData.ToList();
-            var a = new DuetProgram(0);
-            var b = new DuetProgram(1);
+            var a = new DuetProgram(new Dictionary<char, long> {{'p', 0}});
+            var b = new DuetProgram(new Dictionary<char, long> {{'p', 1}});
 
             while (!a.Terminated && !b.Terminated)
             {
