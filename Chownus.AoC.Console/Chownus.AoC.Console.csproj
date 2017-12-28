@@ -34,6 +34,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable, Version=1.2.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.4.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
@@ -49,6 +52,7 @@
     <Compile Include="2015\3\Solution.cs" />
     <Compile Include="2015\2\Solution.cs" />
     <Compile Include="2015\1\Solution.cs" />
+    <Compile Include="2017\24\Solution.cs" />
     <Compile Include="2017\23\Solution.cs" />
     <Compile Include="2017\22\Solution.cs" />
     <Compile Include="2017\21\Solution.cs" />
@@ -66,6 +70,7 @@
     <Compile Include="2017\11\Solution.cs" />
     <Compile Include="2017\10\Solution.cs" />
     <Compile Include="Common\Helpers\LinkedListHelper.cs" />
+    <Compile Include="Common\Helpers\RegexHelper.cs" />
     <Compile Include="Common\Models\WeightedNode.cs" />
     <Compile Include="2017\9\Solution.cs" />
     <Compile Include="2017\8\Solution.cs" />
@@ -80,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="2015\5\input.txt">
@@ -95,6 +101,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="2015\1\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2017\24\input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="2017\23\input.txt">
