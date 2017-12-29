@@ -52,6 +52,7 @@
     <Compile Include="2015\3\Solution.cs" />
     <Compile Include="2015\2\Solution.cs" />
     <Compile Include="2015\1\Solution.cs" />
+    <Compile Include="2017\25\Solution.cs" />
     <Compile Include="2017\24\Solution.cs" />
     <Compile Include="2017\23\Solution.cs" />
     <Compile Include="2017\22\Solution.cs" />
@@ -101,6 +102,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="2015\1\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2017\25\input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="2017\24\input.txt">

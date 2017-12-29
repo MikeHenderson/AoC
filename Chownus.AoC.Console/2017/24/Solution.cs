@@ -17,8 +17,6 @@ namespace Chownus.AoC.Console._2017._24
                 .ToImmutableList();
 
             return FindMaxStrength(input).ToString();
-
-
         }
 
         private int FindMaxStrength(IImmutableList<BridgePiece> ports, int current = 0, int strength = 0)
@@ -37,8 +35,6 @@ namespace Chownus.AoC.Console._2017._24
                 .ToImmutableList();
 
             return FindMaxStrengthOfLongest(input).Item1.ToString();
-
-
         }
 
         private (int, int) FindMaxStrengthOfLongest(IImmutableList<BridgePiece> ports, int current = 0, int strength = 0, int length = 0)
