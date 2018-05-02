@@ -8,5 +8,10 @@ namespace Chownus.AoC.Console.Common.Helpers
         {
             return Regex.Matches(s, "\\d+");
         }
+
+        public static MatchCollection GetUppercase(this string s)
+        {
+            return Regex.Matches(s, "[A-Z]+");
+        }
     }
 }
