@@ -3,15 +3,21 @@ using System.Linq;
 
 namespace Chownus.AoC.Console.Common.Graphs
 {
-    public class UndirectedGraph<T>
+    // TODO: move weighted edge to WeightedGraph child
+    public abstract class Graph<T>
     {
         public IList<Vertex<T>> Vertices { get; }
         public IList<WeightedEdge<T>> Edges { get; }
 
-        public UndirectedGraph()
+        protected Graph()
         {
             Edges = new List<WeightedEdge<T>>();
             Vertices = new List<Vertex<T>>();
+        }
+
+        public WeightedEdge<T> GetEdge(T from, T to)
+        {
+            return Edges.FirstOrDefault(x => x.From.Value.Equals(from) && x.To.Value.Equals(to));
         }
 
         public Vertex<T> GetVertex(T value)
@@ -26,17 +32,6 @@ namespace Chownus.AoC.Console.Common.Graphs
             return v;
         }
 
-        public void AddWeightedEdge(Vertex<T> v1, Vertex<T> v2, int cost)
-        {
-            var fwd = new WeightedEdge<T>{ From = v1, To = v2, Cost = cost };
-            var back = new WeightedEdge<T>{ From = v2, To = v1, Cost = cost };
-            v1.Neighbors.Add(fwd);
-            v2.Neighbors.Add(back);
-
-            Edges.Add(fwd);
-            Edges.Add(back);
-        }
-
         public IDictionary<T, IDictionary<T, int?>> ToAdjacencyMatrix()
         {
             // Build adjacency matrix w/ associative keys, 
@@ -46,7 +41,7 @@ namespace Chownus.AoC.Console.Common.Graphs
             // initialize matrix
             var adjMatrix = rootList.ToDictionary<T, T, IDictionary<T, int?>>(v => v,
                 v => rootList
-                    .ToDictionary(x => x, x => (int?) null));
+                    .ToDictionary(x => x, x => (int?)null));
 
             // initialize diagonal values to "infinity"
             foreach (var key in adjMatrix.Keys)

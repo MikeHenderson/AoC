@@ -10,7 +10,7 @@ namespace Chownus.AoC.Console._2015._9
 
         public string RunPart1(IEnumerable<string> testData)
         {
-            var graph = new UndirectedGraph<string>();
+            var graph = new UndirectedWeightedGraph<string>();
 
             // Populate graph
             foreach (var line in testData)
@@ -23,7 +23,7 @@ namespace Chownus.AoC.Console._2015._9
                 var fromV = graph.GetVertex(from) ?? graph.AddVertex(from);
                 var toV = graph.GetVertex(to) ?? graph.AddVertex(to);
 
-                graph.AddWeightedEdge(fromV, toV, cost);
+                graph.AddEdge(fromV, toV, cost);
             }
 
             return graph.CalculateShortestPath().ToString();
@@ -31,7 +31,7 @@ namespace Chownus.AoC.Console._2015._9
 
         public string RunPart2(IEnumerable<string> testData)
         {
-            var graph = new UndirectedGraph<string>();
+            var graph = new UndirectedWeightedGraph<string>();
 
             // Populate graph
             foreach (var line in testData)
@@ -44,7 +44,7 @@ namespace Chownus.AoC.Console._2015._9
                 var fromV = graph.GetVertex(from) ?? graph.AddVertex(from);
                 var toV = graph.GetVertex(to) ?? graph.AddVertex(to);
 
-                graph.AddWeightedEdge(fromV, toV, cost);
+                graph.AddEdge(fromV, toV, cost);
             }
 
             return graph.CalculateLongestPath().ToString();

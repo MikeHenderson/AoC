@@ -5,51 +5,7 @@ namespace Chownus.AoC.Console.Common.Graphs
 {
     public static class GraphExtensions
     {
-        public static int CalculateLongestPath<T>(this UndirectedGraph<T> graph)
-        {
-            var permutations = graph.Vertices.SelectMany(x => GetPermutations(x, new List<Vertex<T>>()));
-            var adjMatrix = graph.ToAdjacencyMatrix();
-
-            return permutations.Max(x =>
-            {
-                var cost = 0;
-                var p = x.ToList();
-
-                for (int i = 0; i < p.Count - 1; i++)
-                {
-                    var from = p[i];
-                    var to = p[i + 1];
-
-                    cost += adjMatrix[from][to].Value;
-                }
-
-                return cost;
-            });
-        }
-
-        public static int CalculateShortestPath<T>(this UndirectedGraph<T> graph)
-        {
-            var permutations = graph.Vertices.SelectMany(x => x.GetPermutations(new List<Vertex<T>>()));
-            var adjMatrix = graph.ToAdjacencyMatrix();
-
-            return permutations.Min(x =>
-            {
-                var cost = 0;
-                var p = x.ToList();
-
-                for (int i = 0; i < p.Count - 1; i++)
-                {
-                    var from = p[i];
-                    var to = p[i + 1];
-
-                    cost += adjMatrix[from][to].Value;
-                }
-
-                return cost;
-            });
-        }
-
-        private static IEnumerable<IEnumerable<T>> GetPermutations<T>(this Vertex<T> root, ICollection<Vertex<T>> path)
+        public static IEnumerable<IEnumerable<T>> GetPermutations<T>(this Vertex<T> root, ICollection<Vertex<T>> path)
         {
             path.Add(root);
 
@@ -58,6 +14,7 @@ namespace Chownus.AoC.Console.Common.Graphs
 
             foreach (var n in root.Neighbors.Where(x => !path.Contains(x.To)))
             {
+                // Potential here to cause problems with large data sets
                 var pa = new List<Vertex<T>>(path);
 
                 foreach (var p in n.To.GetPermutations(pa))
