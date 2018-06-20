@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Chownus.AoC.Console.Common.Graphs;
 
 namespace Chownus.AoC.Console._2015._9
