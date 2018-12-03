@@ -71,6 +71,7 @@
     <Compile Include="2017\21\Solution.cs" />
     <Compile Include="2017\20\Solution.cs" />
     <Compile Include="2017\19\Solution.cs" />
+    <Compile Include="2018\3\Solution.cs" />
     <Compile Include="2018\2\Solution.cs" />
     <Compile Include="2018\1\Solution.cs" />
     <Compile Include="Common\DuetProgram.cs" />
@@ -209,6 +210,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="2017\5\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2018\3\input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="2018\2\input.txt">
