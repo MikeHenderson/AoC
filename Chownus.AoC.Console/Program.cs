@@ -10,13 +10,13 @@ namespace Chownus.AoC.Console
         {
             var solutionImplementations = Assembly.GetExecutingAssembly()
                 .GetTypes()
-                .Where(type => typeof(IAoCSolution).IsAssignableFrom(type) && !type.IsInterface);
+                .Where(type => typeof(IAoCSolution).IsAssignableFrom(type) && !type.IsInterface)
+                .Select(x => (IAoCSolution)Activator.CreateInstance(x))
+                .OrderByDescending(x => x.Year)
+                .ThenByDescending(x => x.Day);
 
-            foreach (var impl in solutionImplementations)
+            foreach (var solution in solutionImplementations)
             {
-                var solution = (IAoCSolution) Activator.CreateInstance(impl);
-
-                if (solution.Year == 2017) continue;
                 var input = Utilities.ImportInputAsList(solution.Day, solution.Year);
 
                 System.Console.WriteLine($"Day {solution.Day}, {solution.Year} - Part 1 Answer: {solution.RunPart1(input)}");
